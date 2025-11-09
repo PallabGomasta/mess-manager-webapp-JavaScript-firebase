@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mess Join/Create</title>
+  <link rel="stylesheet" href="styles/dhokbabana.css" />
+</head>
+<body>
+    <div class="header">
+    <img src="Images/logo.png" alt="Logo" />
+    <div class="header-title">Mess Management Online</div>
+  </div>
+  <div class="container">
+    <h2>Join or Create</h2>
+
+<select id="roleSelect">
+  <option value="manager">Manager</option>
+  <option value="member">Member</option>
+</select>
+
+<input id="messIdInput" placeholder="Unique ID: 9Ajan25, shec24dec">
+
+<button id="submitBtn">Create</button>
+
+
+  </div>
+
+  <script type="module">
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    import { app } from './js/firebaseConfig.js';
+
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Redirect if user already joined a mess (check users collection)
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        if (userDoc.exists()) {
+          const userData = userDoc.data();
+          if (userData?.role && userData?.messId) {
+            window.location.href = "dashboard.html"; // Already joined/created
+          }
+        }
+      } else {
+        window.location.href = "login.html"; // Not logged in
+      }
+    });
+  </script>
+
+  <script type="module" src="js/dhokbabana.js"></script>
+</body>
+</html>

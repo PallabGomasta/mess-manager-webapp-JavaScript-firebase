@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mess Management Online</title>
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/dashboard.css" />
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .user-info {
+      margin-right: 15px;
+      font-weight: bold;
+      font-size: 1rem;
+      display: inline-block;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header with Logo and Manage Button -->
+  <div class="header">
+    <div class="header-left">
+      <img src="Images/logo.png" alt="Logo" />
+      <div class="header-title">Mess Management Online</div>
+    </div>
+    <div class="header-actions" style="display: flex; align-items: center;">
+      <!-- lighdark button -->
+      <button class="download-btn" onclick="toggleTheme()">🌗</button>
+      <!-- Download Button -->
+<button id="download-summary" class="download-btn">⬇️</button>
+      <!-- jogajog -->
+       <button class="download-btn" onclick="window.location.href='chat.html'">💬</button>
+      <div id="userInfo"></div>
+      <button id="manageButton" class="hidden">Manage</button>
+
+      <!-- Mess Button -->
+      <button id="openMessModal">Mess</button>
+
+      <button id="logoutBtn" class="logout-button">Logout</button>
+    </div>
+  </div>
+
+  <!-- Floating modal -->
+  <div id="messModal" class="modal hidden">
+    <div class="modal-content">
+      <span id="closeModal" class="close-button">&times;</span>
+      <h2>Mess Members</h2>
+      <ul id="memberList"></ul>
+    </div>
+  </div>
+
+  <!-- Hostel manage -->
+  <div class="table-container2">
+    Loading Table Data...
+  </div>
+  <!-- itihas deletion -->
+  <div class="table-container"></div>
+
+  <!-- Other Expense Section -->
+  <div class="table-container">
+    <h3>House Rent, Current-Gas-Internet Bil</h3>
+    <table id="status-table" border="1" cellspacing="0" cellpadding="5">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Comment</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+  
+
+   <div id="reset-mess-section" class="hidden">
+  <input type="text" id="newMessIdInput" placeholder="Enter New Mess ID">
+  <button id="resetMessBtn">Reset Mess & Enter New ID</button>
+</div>
+
+    
+    <script type="module" src="./js/resetMess.js"></script>
+
+  <!-- manager er sob dayitto -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal-content" id="manage-form">
+      <span class="close-button" onclick="closeModal()">×</span>
+      <h3>Update Records</h3>
+
+      <label for="member-select">Select Member:</label>
+      <select id="member-select">
+        <option value="member1">Pallab1</option>
+        <option value="member2">Pallab2</option>
+        <option value="member3">Pallab3</option>
+      </select>
+
+      <label for="date">Select Date:</label>
+      <input type="date" id="date" />
+
+      <label for="cash">Cash:</label>
+      <input type="number" id="cash" placeholder="Enter Cash" />
+
+      <label for="expense">Expense:</label>
+      <input type="number" id="expense" placeholder="Enter Expense" />
+
+      <label for="meal">Meal:</label>
+      <input type="number" id="meal" placeholder="Enter Meal" />
+
+      <div class="form-buttons"
+        style="max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
+        <button class="update-button">Update</button>
+
+      </div>
+    </div>
+  </div>
+  <!-- Scripts -->
+  <script>
+    // manage form er script
+    function openModal() {
+      document.getElementById('modal-overlay').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal-overlay').classList.add('hidden');
+    }
+
+    // Theme 
+    function toggleTheme() {
+      document.body.classList.toggle('dark-theme');
+    }
+  </script>
+
+  <script type="module" src="./js/dashboard.js"></script>
+  <script type="module" src="./js/BasaCurrentGas.js"></script>
+  <script type="module" src="./js/summaryDownload.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
+
+</body>
+
+</html>

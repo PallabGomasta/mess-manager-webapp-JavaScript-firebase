@@ -1,0 +1,16 @@
+.hidden {
+  display: none;
+}
+#manageButton {
+  padding: 10px 15px;
+  background-color: rgb(0, 150, 32);
+    color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#manageButton:hover {
+  background-color: #0056b3;
+}
+

@@ -1,0 +1,537 @@
+/* Reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #f4f7fa;
+  color: #333;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+.header {
+  background-color: #004d99;
+  color: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-left img {
+  height: 120px;
+  width: 120px;
+}
+
+.header-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.manage-button
+.theme-toggle {
+  padding: 10px 15px;
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+.manage-button:hover,
+.theme-toggle:hover {
+  background-color: #01501f;
+}
+/* Shit Content */
+.table-container2 {
+  max-width: auto;
+  margin: 10px;
+  padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #001f3f, #0074D9);
+  border-radius: 8px;
+  color: #e0e7ff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Summary table styling */
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+  font-family: Arial, sans-serif;
+  color: #cce6ff;
+  background: linear-gradient(90deg, #001f3f, #004080);
+  box-shadow: 0 4px 10px rgba(0, 51, 102, 0.6);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.summary-table th, 
+.summary-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #003366;
+  text-align: center;
+}
+
+.summary-table th {
+  background: #003366;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.summary-table tbody tr:hover {
+  background: #003366aa;
+  cursor: default;
+}
+
+.summary-table tfoot tr.meal-rate-row {
+  background: #00264d;
+  color: #99ccff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 2px solid #004080;        /* Adds a border around the entire row */
+}
+
+.summary-table tfoot tr.meal-rate-row td {
+  text-align: center !important;   /* Center text horizontally in all cells */
+  vertical-align: middle;           /* Center text vertically */
+  border: none;                     /* Remove individual cell borders to avoid double border */
+}
+
+/* Optional: make the left cell (colspan=4) text right aligned except Meal Rate value */
+.summary-table tfoot tr.meal-rate-row td:first-child {
+  text-align: right !important;
+  border: none;
+  padding-right: 10px;
+}
+
+/* Meal Rate value cell */
+.summary-table tfoot tr.meal-rate-row td:last-child {
+  text-align: center !important;  /* Center the meal rate number */
+  font-weight: 700;
+  border-left: 2px solid #004080;  /* Separate border on left side to visually separate */
+  padding-left: 10px;
+}
+
+
+/*History Table */
+.table-container {
+  max-width: auto;
+  margin: 10px;
+  padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #001f3f, #0074D9);
+  border-radius: 8px;
+  color: #e0e7ff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.update-history {
+  border-top: 2px solid #ffffff;
+  padding: 5px;
+}
+
+.update-history h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #cce0ff;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #cce0ff;
+  padding-bottom: 5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.update-entry {
+  background: rgba(0, 47, 93, 0.7);
+  border-radius: 10px;
+  padding: 5px 20px;
+  margin-bottom: 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 50, 0.5);
+  transition: background-color 0.3s ease;
+}
+
+.update-entry:hover {
+  background: rgba(0, 63, 127, 0.85);
+}
+
+.update-entry p {
+  margin: 0;
+  font-size: 15px;
+  color: #d9e6ff;
+  flex: 1;
+  padding-right: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.update-entry p strong {
+  color: #a3c9ff;
+}
+
+.update-entry button.delete-history {
+  background: linear-gradient(45deg, #00264d, #004080);
+  border: 1.5px solid #99bbff;
+  color: #cce0ff;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+  font-size: 14px;
+  user-select: none;
+}
+
+.update-entry button.delete-history:hover {
+  background: linear-gradient(45deg, #003366, #0059b3);
+  border-color: #b3d1ff;
+  color: #ffffff;
+}
+
+/* Status table */
+/* Styling for Status & Comments Table */
+#status-table {
+  width: 100%;
+  max-width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #001f3f, #015aa8);
+  border-radius: 8px;
+  color: #e0e7ff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  border-collapse: collapse;
+}
+
+#status-table th,
+#status-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+#status-table th {
+  background: rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+}
+
+#status-table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#status-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+
+
+
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+/* update form */
+.modal-content {
+  background-color: white;
+  max-width: 500px;
+  width: 90%;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.modal-content label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 500;
+}
+
+.modal-content input,
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+  border-color: #0066cc;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.update-button,
+.member-button {
+  flex: 1;
+  padding: 10px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.update-button:hover {
+  background-color: #218838;
+}
+
+.member-button {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.member-button:hover {
+  background-color: #138496;
+}
+.logout-button {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.logout-button:hover {
+  background-color: #c82333;
+}
+/* Close button */
+.close-button {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Dark Theme */
+body.dark-theme {
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+}
+
+body.dark-theme .header {
+  background-color: #222;
+  color: #eee;
+}
+
+body.dark-theme .header-title,
+body.dark-theme .table-container {
+  color: #eee;
+}
+
+body.dark-theme .manage-button,
+body.dark-theme .theme-toggle {
+  background-color: #333;
+  color: #eee;
+  border-color: #666;
+}
+
+body.dark-theme .modal-content {
+  background-color: #2c2c2c;
+  color: #eee;
+}
+
+body.dark-theme input,
+body.dark-theme select {
+  background-color: #444;
+  color: white;
+  border-color: #666;
+}
+
+
+
+
+
+
+/* Modal backdrop & centering (unchanged) */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Modal box with navy blue gradient background */
+.modal-content {
+  background: linear-gradient(135deg, #001f3f, #003366);
+  color: #cce0ff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-height: 80%;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 50, 0.5);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Close button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #cce0ff;
+  background: transparent;
+  border: none;
+}
+
+/* Hide modal */
+.hidden {
+  display: none;
+}
+
+/* Member list styles */
+#memberList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#memberList li {
+  background: rgba(12, 38, 77, 0.7); /* dark navy semi-transparent */
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #cce0ff;
+  font-weight: 600;
+}
+
+/* Button container inside each member list item */
+.member-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Buttons inside modal (Make Manager, Remove, Leave) */
+.mess-modal-button {
+  background: linear-gradient(135deg, #004080, #003366);
+  color: #cce0ff;
+  font-weight: 700;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 102, 204, 0.7);
+  transition: background 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+  user-select: none;
+  font-size: 14px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mess-modal-button:hover {
+  background: linear-gradient(135deg, #3366cc, #224488);
+  color: #ffffff;
+}
+
+/* Specific buttons inside member list - override default margin */
+#memberList button {
+  margin-left: 0;
+}
+
+/* Mess button (the one that opens the modal) */
+#openMessModal {
+  background: linear-gradient(135deg, #003366, #001f3f);
+  color: #cce0ff;
+  font-weight: 700;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#openMessModal:hover {
+  background: linear-gradient(135deg, #224488, #3366cc);
+  color: #ffffff;
+}
+
+.download-btn {
+  margin-left: 2px;
+  background-color: transparent;
+  padding: 4px 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  border-radius: 2px;
+  transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+  background-color: #025f07;
+  color: white;
+}
